@@ -140,7 +140,6 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object>{
     protected void onPreExecute() {
         super.onPreExecute();
         mInterface.startNfcReadCard();
-        mProvider.getLog().setLength(0);
     }
 
     @Override
