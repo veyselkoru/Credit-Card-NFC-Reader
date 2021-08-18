@@ -42,8 +42,9 @@ public enum EmvCardScheme {
 	PBS("PBS", null, "A0 00 00 01 21 10 10"), //
 	ETRANZACT("eTranzact", null, "A0 00 00 04 54"), //
 	GOOGLE("Google", null, "A0 00 00 04 76 6C"), //
-	INTER_SWITCH("InterSwitch", null, "A0 00 00 03 71 00 01");
-
+	INTER_SWITCH("InterSwitch", null, "A0 00 00 03 71 00 01"),
+	MIR("МИР", null, "A0 00 00 06 58 20 10", "A0 00 00 06 58 10 10", "A0 00 00 06 58 10 11"),
+	PROSTIR("Простiр", null, "D8 04 00 00 01 30 10");
 	/**
 	 * array of Card AID or partial AID (RID)
 	 */
