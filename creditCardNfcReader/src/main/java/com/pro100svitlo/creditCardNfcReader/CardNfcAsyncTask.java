@@ -83,6 +83,8 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object>{
     public final static String CARD_ETRANZACT = EmvCardScheme.ETRANZACT.toString();
     public final static String CARD_GOOGLE = EmvCardScheme.GOOGLE.toString();
     public final static String CARD_INTER_SWITCH = EmvCardScheme.INTER_SWITCH.toString();
+    public final static String CARD_MIR = EmvCardScheme.MIR.toString();
+    public final static String CARD_PROSTIR = EmvCardScheme.PROSTIR.toString();
 
     private final static String NFC_A_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcA]";
     private final static String NFC_B_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcB]";
