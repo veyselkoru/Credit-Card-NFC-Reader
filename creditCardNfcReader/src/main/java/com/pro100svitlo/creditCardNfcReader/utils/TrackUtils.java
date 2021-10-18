@@ -29,7 +29,7 @@ public final class TrackUtils {
 
 	/**
 	 * Extract track 2 data
-	 * 
+	 *
 	 * @param pEmvCard
 	 *            Object card representation
 	 * @param pData
@@ -47,6 +47,8 @@ public final class TrackUtils {
 			if (m.find()) {
 				// read card number
 				pEmvCard.setCardNumber(m.group(1));
+				pEmvCard.setHolderFirstname(m.toString());
+				pEmvCard.setHolderLastname(m.group(4));
 				// Read expire date
 				String month = m.group(2).substring(2,4);
 				String year = m.group(2).substring(0,2);
