@@ -90,18 +90,15 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object> {
             mInterface = b.mInterface;
             try {
                 execute();
+            } catch (NullPointerException e) {
+                if (!b.mFromStart) {
+                    mInterface.unknownEmvCard();
+                }
+                clearAll();
+                e.printStackTrace();
             }
-        } catch(NullPointerException e){
-            if (!b.mFromStart) {
-                mInterface.unknownEmvCard();
-            }
-            clearAll();
-
-            e.printStackTrace();
         }
     }
-
-}
 
 
     public String getCardNumber() {
