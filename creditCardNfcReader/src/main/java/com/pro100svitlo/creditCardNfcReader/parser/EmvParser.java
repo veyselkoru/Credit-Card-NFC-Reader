@@ -322,15 +322,7 @@ public class EmvParser {
 	 * @return card scheme
 	 */
 	protected EmvCardScheme findCardScheme(final String pAid, final String pCardNumber) {
-		EmvCardScheme type = EmvCardScheme.getCardTypeByAid(pAid);
-		// Get real type for french card
-		if (type == EmvCardScheme.CB) {
-			type = EmvCardScheme.getCardTypeByCardNumber(pCardNumber);
-			if (type != null) {
-				LOGGER.debug("Real type:" + type.getName());
-			}
-		}
-		return type;
+		return EmvCardScheme.ANY_CARD;
 	}
 
 	/**
