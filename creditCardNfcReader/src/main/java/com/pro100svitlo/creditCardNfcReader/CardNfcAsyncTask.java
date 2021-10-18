@@ -170,9 +170,6 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object>{
                     mCardNumber = mCard.getCardNumber();
                     mExpireDate = mCard.getExpireDate();
                     mCardType = mCard.getType().toString();
-                    if (mCardType.equals(EmvCardScheme.UNKNOWN.toString())){
-                        LOGGER.debug(UNKNOWN_CARD_MESS);
-                    }
                     mInterface.cardIsReadyToRead();
                 } else if (mCard.isNfcLocked()) {
                     mInterface.cardWithLockedNfc();
