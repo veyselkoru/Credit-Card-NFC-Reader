@@ -57,7 +57,7 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object>{
     public final static String CARD_UNKNOWN = EmvCardScheme.ANY_CARD.toString();
     public final static String CARD_VISA = EmvCardScheme.ANY_CARD.toString();
 
-    private final static String NFC_A_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcA]";
+    private final static String NFC_A_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcA, android.nfc.tech.NfcA, android.nfc.tech.MifareClassic, android.nfc.tech.NdefFormatable]";
     private final static String NFC_B_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcB]";
     private final static String NFC_F_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcF]";
     private final static String NFC_V_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcV]";
@@ -101,6 +101,7 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object>{
             }
         }
     }
+
 
     public String getCardNumber() {
         return mCardNumber;
