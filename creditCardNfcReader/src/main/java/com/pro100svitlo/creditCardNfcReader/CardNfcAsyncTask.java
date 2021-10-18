@@ -81,6 +81,8 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object> {
     private CardNfcInterface mInterface;
     private Tag mTag;
     private String mCardNumber;
+    private String mCardLastName;
+    private String mCardFirstName;
     private String mExpireDate;
     private String mCardType;
 
