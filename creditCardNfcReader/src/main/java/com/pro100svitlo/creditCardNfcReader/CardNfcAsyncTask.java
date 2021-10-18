@@ -195,6 +195,8 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object> {
         mCard = null;
         mTag = null;
         mCardNumber = null;
+        mCardLastName = null;
+        mCardFirstName = null;
         mExpireDate = null;
         mCardType = null;
     }
