@@ -21,7 +21,7 @@ import java.io.IOException;
 /**
  * Created by pro100svitlo on 21.03.16.
  */
-public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object>{
+public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object> {
 
     public static class Builder {
         private Tag mTag;
@@ -58,18 +58,19 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object>{
     public final static String CARD_VISA = EmvCardScheme.ANY_CARD.toString();
 
     private final static String NFC_A_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcA, android.nfc.tech.NfcA, android.nfc.tech.MifareClassic, android.nfc.tech.NdefFormatable]";
+    private final static String NFC_G_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcA]";
     private final static String NFC_B_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcB]";
     private final static String NFC_F_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcF]";
     private final static String NFC_V_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcV]";
     private final String UNKNOWN_CARD_MESS =
-            "===========================================================================\n\n"+
-            "Hi! This library is not familiar with your credit card. \n " +
-            "Please, write me an email with information of your bank: \n" +
-            "country, bank name, card type, etc) and i will try to do my best, \n" +
-            "to add your bank as a known one into this lib. \n" +
-            "Great thanks for using and reporting!!! \n" +
-            "Here is my email: pro100svitlo@gmail.com. \n\n" +
-            "===========================================================================";
+            "===========================================================================\n\n" +
+                    "Hi! This library is not familiar with your credit card. \n " +
+                    "Please, write me an email with information of your bank: \n" +
+                    "country, bank name, card type, etc) and i will try to do my best, \n" +
+                    "to add your bank as a known one into this lib. \n" +
+                    "Great thanks for using and reporting!!! \n" +
+                    "Here is my email: pro100svitlo@gmail.com. \n\n" +
+                    "===========================================================================";
 
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CardNfcAsyncTask.class);
@@ -88,19 +89,19 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object>{
         if (mTag != null) {
             mInterface = b.mInterface;
             try {
-                if (mTag.toString().equals(NFC_A_TAG) || mTag.toString().equals(NFC_B_TAG) || mTag.toString().equals(NFC_V_TAG) || mTag.toString().equals(NFC_F_TAG)) {
-                    execute();
-                } else {
-                    if (!b.mFromStart) {
-                        mInterface.unknownEmvCard();
-                    }
-                    clearAll();
-                }
-            } catch (NullPointerException e) {
-                e.printStackTrace();
+                execute();
             }
+        } catch(NullPointerException e){
+            if (!b.mFromStart) {
+                mInterface.unknownEmvCard();
+            }
+            clearAll();
+
+            e.printStackTrace();
         }
     }
+
+}
 
 
     public String getCardNumber() {
@@ -158,7 +159,7 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object>{
         clearAll();
     }
 
-    private void doInBackground(){
+    private void doInBackground() {
         IsoDep mIsoDep = IsoDep.get(mTag);
         if (mIsoDep == null) {
             mInterface.doNotMoveCardSoFast();
