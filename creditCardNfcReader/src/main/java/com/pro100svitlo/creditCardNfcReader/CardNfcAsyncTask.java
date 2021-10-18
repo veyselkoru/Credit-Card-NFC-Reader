@@ -54,11 +54,13 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object>{
         void finishNfcReadCard();
     }
 
-    public final static String CARD_UNKNOWN = EmvCardScheme.UNKNOWN.toString();
+    public final static String CARD_UNKNOWN = EmvCardScheme.ANY_CARD.toString();
     public final static String CARD_VISA = EmvCardScheme.ANY_CARD.toString();
 
     private final static String NFC_A_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcA]";
     private final static String NFC_B_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcB]";
+    private final static String NFC_F_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcF]";
+    private final static String NFC_V_TAG = "TAG: Tech [android.nfc.tech.IsoDep, android.nfc.tech.NfcV]";
     private final String UNKNOWN_CARD_MESS =
             "===========================================================================\n\n"+
             "Hi! This library is not familiar with your credit card. \n " +
@@ -86,7 +88,7 @@ public class CardNfcAsyncTask extends AsyncTask<Void, Void, Object>{
         if (mTag != null) {
             mInterface = b.mInterface;
             try {
-                if (mTag.toString().equals(NFC_A_TAG) || mTag.toString().equals(NFC_B_TAG)) {
+                if (mTag.toString().equals(NFC_A_TAG) || mTag.toString().equals(NFC_B_TAG) || mTag.toString().equals(NFC_V_TAG) || mTag.toString().equals(NFC_F_TAG)) {
                     execute();
                 } else {
                     if (!b.mFromStart) {
